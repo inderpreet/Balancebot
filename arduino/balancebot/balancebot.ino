@@ -65,7 +65,7 @@ float ypr[3];           // [yaw, pitch, roll]   yaw/pitch/roll container and gra
   double kp , ki, kd;
   double prevKp, prevKi, prevKd;
 #endif
-double originalSetpoint = 174.29;
+double originalSetpoint = 180.00;
 double setpoint = originalSetpoint;
 double movingAngleOffset = 0.3;
 double input, output;
@@ -74,7 +74,7 @@ int moveState=0; //0 = balance; 1 = back; 2 = forth
 #if MANUAL_TUNING
   PID pid(&input, &output, &setpoint, 0, 0, 0, DIRECT);
 #else
-  PID pid(&input, &output, &setpoint, 25, 280, 1.9, DIRECT);
+  PID pid(&input, &output, &setpoint, 20, 220, 1.9, DIRECT);
 #endif
 
 
@@ -89,7 +89,7 @@ int IN4 = A4;
 int ENB = 5;
 
 
-LMotorController motorController(ENA, IN1, IN2, ENB, IN3, IN4, 0.6, 1);
+LMotorController motorController(ENA, IN1, IN2, ENB, IN3, IN4, 1, 1);
 
 
 //timers
